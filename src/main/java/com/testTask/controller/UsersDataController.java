@@ -1,8 +1,8 @@
 package com.testTask.controller;
 
 
-import com.testTask.entity.User;
-import com.testTask.service.UserService;
+import com.testTask.model.entity.User;
+import com.testTask.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -15,7 +15,7 @@ import java.util.UUID;
 public class UsersDataController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
     private MailSender mailSender;
     private SimpleMailMessage templateMessage;
@@ -31,7 +31,7 @@ public class UsersDataController {
 
     @PostMapping
     public void createUserEntry(@RequestBody User user, UUID adminId) {
-        userService.registerUser(user);
+        userServiceImpl.registerUser(user);
 
 //        if (user.getRole()) {
 //            SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
@@ -42,7 +42,7 @@ public class UsersDataController {
 
     @GetMapping("/{id}")
     public void findUserEntry(@PathVariable("id") UUID id) {
-        userService.findUser(id);
+        userServiceImpl.findUser(id);
     }
 
     @DeleteMapping

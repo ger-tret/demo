@@ -1,4 +1,4 @@
-package com.testTask.entity;
+package com.testTask.model.entity;
 
 
 import jakarta.persistence.*;
