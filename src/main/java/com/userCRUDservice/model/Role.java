@@ -1,7 +1,7 @@
-package com.testTask.model;
+package com.userCRUDservice.model;
 
 
-import com.testTask.model.entity.User;
+import com.userCRUDservice.model.entity.User;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -11,6 +11,7 @@ import java.util.Set;
 @Table(name = "roles")
 public class Role {
     @Id
+    @Column(name = "roleId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -18,14 +19,10 @@ public class Role {
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
 
-
-    public Role(Long id, String username, Set<User> users) {
+    public Role(Long id, String username) {
         this.id = id;
         this.username = username;
-        this.users = users;
     }
 
     public Long getId() {
@@ -34,10 +31,6 @@ public class Role {
 
     public String getUsername() {
         return username;
-    }
-
-    public Set<User> getUsers() {
-        return users;
     }
 
 }

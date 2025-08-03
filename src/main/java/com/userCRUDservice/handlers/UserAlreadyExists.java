@@ -1,4 +1,4 @@
-package com.testTask.handlers;
+package com.userCRUDservice.handlers;
 
 public class UserAlreadyExists extends RuntimeException {
     public UserAlreadyExists(String message){

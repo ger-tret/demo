@@ -1,6 +1,6 @@
-package com.testTask.service;
+package com.userCRUDservice.service;
 
-import com.testTask.model.entity.User;
+import com.userCRUDservice.model.entity.User;
 
 import java.util.UUID;
 

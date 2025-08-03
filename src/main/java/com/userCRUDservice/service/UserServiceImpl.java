@@ -1,9 +1,9 @@
-package com.testTask.service;
+package com.userCRUDservice.service;
 
 
-import com.testTask.model.entity.User;
-import com.testTask.handlers.UserAlreadyExists;
-import com.testTask.repository.UserRepository;
+import com.userCRUDservice.model.entity.User;
+import com.userCRUDservice.handlers.UserAlreadyExists;
+import com.userCRUDservice.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

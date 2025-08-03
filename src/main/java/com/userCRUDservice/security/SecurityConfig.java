@@ -1,7 +1,7 @@
-package com.testTask.security;
+package com.userCRUDservice.security;
 
 
-import com.testTask.service.UserServiceImpl;
+import com.userCRUDservice.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

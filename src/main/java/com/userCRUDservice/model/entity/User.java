@@ -1,8 +1,11 @@
-package com.testTask.model.entity;
+package com.userCRUDservice.model.entity;
 
 
+import com.userCRUDservice.model.Role;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -22,22 +25,25 @@ public class User {
     private String firstName;
     private String lastName;
 
-    @Enumerated(EnumType.STRING)
-    private ROLE role;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "roles",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "roleId")
+            )
+    private Set<Role> roles = new HashSet<>();
 
-    enum ROLE{
-        USER,
-        ADMIN
-    }
-
-    public User(UUID userId, String username, String password, String email, String firstName, String lastName, ROLE role) {
+    public User(UUID userId, String username, String password, String email, String firstName, String lastName, Set<Role> roles) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.role = role;
+        this.roles = roles;
+    }
+
+    public User() {
     }
 
     public UUID getUserId() {
@@ -64,10 +70,11 @@ public class User {
         return lastName;
     }
 
-    public ROLE getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-
-
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }

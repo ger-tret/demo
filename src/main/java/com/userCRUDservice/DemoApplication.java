@@ -1,4 +1,4 @@
-package com.testTask;
+package com.userCRUDservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

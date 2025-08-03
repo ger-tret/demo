@@ -1,6 +1,6 @@
-package com.testTask.repository;
+package com.userCRUDservice.repository;
 
-import com.testTask.model.entity.User;
+import com.userCRUDservice.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
