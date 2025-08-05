@@ -1,6 +1,7 @@
 package com.userCRUDservice.controller;
 
 
+import com.userCRUDservice.dtos.IdDto;
 import com.userCRUDservice.dtos.UserDto;
 import com.userCRUDservice.model.User;
 import com.userCRUDservice.service.UserServiceImpl;
@@ -18,12 +19,12 @@ public class UsersDataController {
     private UserServiceImpl userServiceImpl;
 
     @PostMapping()
-    public ResponseEntity<User> createUserEntry(@RequestBody UserDto userDto) {
-       return ResponseEntity.ok(userServiceImpl.registerUser(userDto));
+    public ResponseEntity<IdDto> createUserEntry(@RequestBody UserDto userDto) {
+       return ResponseEntity.ok(new IdDto(userServiceImpl.registerUser(userDto)));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findUserEntry(@PathVariable("id") UUID id) {
+    public ResponseEntity<User> findUserEntry(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(userServiceImpl.findUser(id));
     }
 

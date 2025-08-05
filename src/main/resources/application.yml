@@ -2,10 +2,13 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/users_db
-    username: postgres
+    username: dbUser
     password: postgres
   jpa:
     hibernate:
+      dialect=org:
+        hibernate:
+          dialect: PostgreSQLDialect
       ddl-auto: update
 server:
   port: 8080

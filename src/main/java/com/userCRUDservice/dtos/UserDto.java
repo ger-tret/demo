@@ -10,7 +10,8 @@ import java.util.UUID;
 public class UserDto {
 
     @NotNull
-    private UUID id;
+    @Positive
+    private int id;
 
     @NotNull(message = "username is required")
     @Size(min = 1, max = 100)
@@ -31,7 +32,7 @@ public class UserDto {
     @Size(min = 1, max = 100)
     private String lastName;
 
-    public UserDto(UUID id, String username, String password, String email, String firstName, String lastName) {
+    public UserDto(Integer id, String username, String password, String email, String firstName, String lastName) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -40,7 +41,18 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-    public void setId(UUID id) {
+    public UserDto(int id,String username, String password, String email, String firstName, String lastName) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public UserDto(){}
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -64,7 +76,7 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 

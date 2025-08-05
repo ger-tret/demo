@@ -22,11 +22,11 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User registerUser(UserDto userDto){
-        if(userRepository.findById(userDto.getId()).isPresent()){
-            throw new UserAlreadyExists("User for that ID=" + userDto.getId() + "already exists");
-        }
-        return userRepository.save(userMapper.mapperDtoToEntity().map(userDto));
+    public Integer registerUser(UserDto userDto){
+//        if(userRepository.findById(userDto.getId()).isPresent()){
+//            throw new UserAlreadyExists("User for that ID=" + userDto.getId() + "already exists");
+//        }
+        return userRepository.save(userMapper.mapperDtoToEntity().map(userDto)).getUserId();
     }
 
 
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User findUser(UUID id) {
+    public User findUser(Integer id) {
        return userRepository.findById(id).orElse(null);
     }
 

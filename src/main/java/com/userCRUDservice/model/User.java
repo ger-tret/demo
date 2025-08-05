@@ -6,12 +6,10 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name="Users")
+@Table(name="users")
 public class User  {
     @Id
-    @Column(name = "userId", columnDefinition = "BINARY(16)")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID userId;
+    private int userId;
 
     private String username;
     private String password;
@@ -23,7 +21,7 @@ public class User  {
     private String lastName;
 
 
-    @Column(name = "role", nullable = false, length = 32, columnDefinition = "varchar(32) default 'USER'")
+    @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -32,7 +30,7 @@ public class User  {
         ADMIN;
     }
 
-    public User(UUID userId, String username, String password, String email, String firstName, String lastName, Role role) {
+    public User(int userId, String username, String password, String email, String firstName, String lastName, Role role) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -42,16 +40,19 @@ public class User  {
         this.role = role;
     }
 
-    public User(UUID userId, String username, String password, String email, String firstName, String lastName) {
+    public User(int userId, String username, String password, String email, String firstName, String lastName) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.role = Role.USER;
     }
 
-    public UUID getUserId() {
+    public User(){}
+
+    public int getUserId() {
         return userId;
     }
 

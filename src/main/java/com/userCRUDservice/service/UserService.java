@@ -6,6 +6,6 @@ import com.userCRUDservice.model.User;
 import java.util.UUID;
 
 public interface UserService {
-    User registerUser(UserDto userDto);
-    User findUser(UUID id);
+    Integer registerUser(UserDto userDto);
+    User findUser(Integer id);
 }
