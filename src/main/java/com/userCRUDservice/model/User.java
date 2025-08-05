@@ -1,16 +1,13 @@
-package com.userCRUDservice.model.entity;
+package com.userCRUDservice.model;
 
-
-import com.userCRUDservice.model.Role;
 import jakarta.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+
 
 import java.util.*;
 
 @Entity
 @Table(name="Users")
-public class User implements UserDetails {
+public class User  {
     @Id
     @Column(name = "userId", columnDefinition = "BINARY(16)")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,36 +23,16 @@ public class User implements UserDetails {
     private String lastName;
 
 
-    @Column(name = "role", nullable = false)
+    @Column(name = "role", nullable = false, length = 32, columnDefinition = "varchar(32) default 'USER'")
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return (Collection<? extends GrantedAuthority>) List.of(role);
+    public enum Role{
+        USER,
+        ADMIN;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return UserDetails.super.isAccountNonExpired();
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return UserDetails.super.isAccountNonLocked();
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return UserDetails.super.isCredentialsNonExpired();
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
-    }
-
-    public User(UUID userId, String username, String password, String email, String firstName, String lastName, Set<Role> roles) {
+    public User(UUID userId, String username, String password, String email, String firstName, String lastName, Role role) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -65,7 +42,13 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public User() {
+    public User(UUID userId, String username, String password, String email, String firstName, String lastName) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public UUID getUserId() {

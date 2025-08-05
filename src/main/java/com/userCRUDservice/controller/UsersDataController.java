@@ -1,7 +1,8 @@
 package com.userCRUDservice.controller;
 
 
-import com.userCRUDservice.model.entity.User;
+import com.userCRUDservice.dtos.UserDto;
+import com.userCRUDservice.model.User;
 import com.userCRUDservice.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,9 @@ public class UsersDataController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @PostMapping
-    public ResponseEntity<User> createUserEntry(@RequestBody User user, UUID adminId) {
-       return ResponseEntity.ok(userServiceImpl.registerUser(user));
+    @PostMapping()
+    public ResponseEntity<User> createUserEntry(@RequestBody UserDto userDto) {
+       return ResponseEntity.ok(userServiceImpl.registerUser(userDto));
     }
 
     @GetMapping("/{id}")
@@ -26,9 +27,5 @@ public class UsersDataController {
         return ResponseEntity.ok(userServiceImpl.findUser(id));
     }
 
-    @DeleteMapping
-    public void deleteUserEntry(){
-
-    }
 
 }

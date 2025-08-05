@@ -1,10 +1,11 @@
 package com.userCRUDservice.service;
 
-import com.userCRUDservice.model.entity.User;
+import com.userCRUDservice.dtos.UserDto;
+import com.userCRUDservice.model.User;
 
 import java.util.UUID;
 
 public interface UserService {
-    User registerUser(User user);
+    User registerUser(UserDto userDto);
     User findUser(UUID id);
 }

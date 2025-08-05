@@ -1,9 +1,11 @@
 package com.userCRUDservice.service;
 
 
-import com.userCRUDservice.model.entity.User;
+import com.userCRUDservice.dtos.UserDto;
+import com.userCRUDservice.model.User;
 import com.userCRUDservice.handlers.UserAlreadyExists;
 import com.userCRUDservice.repository.UserRepository;
+import com.userCRUDservice.service.mapper.UserMapper;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,17 +14,19 @@ import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
-
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Transactional
     @Override
-    public User registerUser(User user){
-        if(userRepository.findById(user.getUserId()).isPresent()){
-            throw new UserAlreadyExists("User for that ID=" + user.getUserId() + "already exists");
+    public User registerUser(UserDto userDto){
+        if(userRepository.findById(userDto.getId()).isPresent()){
+            throw new UserAlreadyExists("User for that ID=" + userDto.getId() + "already exists");
         }
-        return userRepository.save(user);
+        return userRepository.save(userMapper.mapperDtoToEntity().map(userDto));
     }
 
 
