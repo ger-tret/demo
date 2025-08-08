@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UsersDataController {
 
-    @Autowired
     private UserServiceImpl userServiceImpl;
+
+    @Autowired
+    public UsersDataController(UserServiceImpl userServiceImpl){
+        this.userServiceImpl = userServiceImpl;
+    }
 
     @PostMapping()
     public ResponseEntity<IdDto> createUserEntry(@RequestBody @Valid UserDto userDto) {

@@ -11,11 +11,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+
     private UserRepository userRepository;
 
-    @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    public UserServiceImpl(UserMapper userMapper, UserRepository userRepository){
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
+    }
 
     @Transactional
     @Override
