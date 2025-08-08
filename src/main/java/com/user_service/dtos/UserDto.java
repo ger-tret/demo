@@ -1,11 +1,9 @@
-package com.userCRUDservice.dtos;
+package com.user_service.dtos;
 
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-
-import java.util.UUID;
 
 public class UserDto {
 

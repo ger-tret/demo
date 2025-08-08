@@ -1,9 +1,6 @@
-package com.userCRUDservice.model;
+package com.user_service.model;
 
 import jakarta.persistence.*;
-
-
-import java.util.*;
 
 @Entity
 @Table(name="users")

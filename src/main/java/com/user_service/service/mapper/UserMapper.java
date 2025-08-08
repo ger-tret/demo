@@ -1,7 +1,7 @@
-package com.userCRUDservice.service.mapper;
+package com.user_service.service.mapper;
 
-import com.userCRUDservice.dtos.UserDto;
-import com.userCRUDservice.model.User;
+import com.user_service.dtos.UserDto;
+import com.user_service.model.User;
 import org.springframework.stereotype.Service;
 
 @Service

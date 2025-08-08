@@ -1,15 +1,13 @@
-package com.userCRUDservice.controller;
+package com.user_service.controller;
 
 
-import com.userCRUDservice.dtos.IdDto;
-import com.userCRUDservice.dtos.UserDto;
-import com.userCRUDservice.model.User;
-import com.userCRUDservice.service.UserServiceImpl;
+import com.user_service.dtos.IdDto;
+import com.user_service.dtos.UserDto;
+import com.user_service.model.User;
+import com.user_service.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/users")

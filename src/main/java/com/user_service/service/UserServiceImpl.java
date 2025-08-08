@@ -1,16 +1,13 @@
-package com.userCRUDservice.service;
+package com.user_service.service;
 
 
-import com.userCRUDservice.dtos.UserDto;
-import com.userCRUDservice.model.User;
-import com.userCRUDservice.handlers.UserAlreadyExists;
-import com.userCRUDservice.repository.UserRepository;
-import com.userCRUDservice.service.mapper.UserMapper;
+import com.user_service.dtos.UserDto;
+import com.user_service.model.User;
+import com.user_service.repository.UserRepository;
+import com.user_service.service.mapper.UserMapper;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {

@@ -1,4 +1,4 @@
-package com.userCRUDservice.dtos;
+package com.user_service.dtos;
 
 public record IdDto(Integer id) {
 }
