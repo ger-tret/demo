@@ -15,7 +15,7 @@ public class UserMapper {
                     entity.getEmail());
 
     private final Mapper<UserDto, User> dtoToEntity =
-            dto -> new User(
+            dto ->  new User(
                     dto.getId(),
                     dto.getUsername(),
                     dto.getPassword(),

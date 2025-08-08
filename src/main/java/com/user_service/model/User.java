@@ -1,9 +1,14 @@
 package com.user_service.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name="users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User  {
     @Id
     private int userId;
@@ -27,16 +32,6 @@ public class User  {
         ADMIN;
     }
 
-    public User(int userId, String username, String password, String email, String firstName, String lastName, Role role) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.role = role;
-    }
-
     public User(int userId, String username, String password, String email, String firstName, String lastName) {
         this.userId = userId;
         this.username = username;
@@ -45,39 +40,5 @@ public class User  {
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = Role.USER;
-    }
-
-    public User(){}
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }
