@@ -1,4 +1,4 @@
-package com.user_service.handlers;
+package com.user_service.exceptions;
 
 public class UserAlreadyExists extends RuntimeException {
     public UserAlreadyExists(String message){
