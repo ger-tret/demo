@@ -1,10 +1,10 @@
-package com.user_service.service;
+package com.learn.gt.user.service.service;
 
 
-import com.user_service.dtos.UserDto;
-import com.user_service.model.User;
-import com.user_service.repository.UserRepository;
-import com.user_service.service.mapper.UserMapper;
+import com.learn.gt.user.service.dtos.UserDto;
+import com.learn.gt.user.service.model.User;
+import com.learn.gt.user.service.repository.UserRepository;
+import com.learn.gt.user.service.service.mapper.UserMapper;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public Integer registerUser(UserDto userDto){
+    public Long registerUser(UserDto userDto){
 //        if(userRepository.findById(userDto.getId()).isPresent()){
 //            throw new UserAlreadyExists("User for that ID=" + userDto.getId() + "already exists");
 //        }
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User findUser(Integer id) {
+    public User findUser(Long id) {
        return userRepository.findById(id).orElse(null);
     }
 

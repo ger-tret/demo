@@ -1,4 +1,4 @@
-package com.user_service.dtos;
+package com.learn.gt.user.service.dtos;
 
 public class RefreshTokenRequestDto {
 }

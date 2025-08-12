@@ -1,7 +1,7 @@
-package com.user_service.service.mapper;
+package com.learn.gt.user.service.service.mapper;
 
-import com.user_service.dtos.UserDto;
-import com.user_service.model.User;
+import com.learn.gt.user.service.dtos.UserDto;
+import com.learn.gt.user.service.model.User;
 import org.springframework.stereotype.Service;
 
 @Service

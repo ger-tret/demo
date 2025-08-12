@@ -1,4 +1,4 @@
-package com.user_service.model;
+package com.learn.gt.user.service.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 public class User  {
     @Id
-    private int userId;
+    private long userId;
 
     private String username;
     private String password;
@@ -32,7 +32,7 @@ public class User  {
         ADMIN;
     }
 
-    public User(int userId, String username, String password, String email, String firstName, String lastName) {
+    public User(long userId, String username, String password, String email, String firstName, String lastName) {
         this.userId = userId;
         this.username = username;
         this.password = password;
