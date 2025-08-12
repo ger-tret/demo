@@ -8,7 +8,10 @@ import java.util.*;
 @Entity
 @Table(name="users")
 public class User  {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_seq")
+    @SequenceGenerator(name = "id_seq", sequenceName = "id_seq", allocationSize = 1)
     private int userId;
 
     private String username;
