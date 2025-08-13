@@ -1,7 +1,7 @@
-package com.userCRUDservice.service.mapper;
+package com.learn.gt.user.service.service.mapper;
 
-import com.userCRUDservice.dtos.UserDto;
-import com.userCRUDservice.model.User;
+import com.learn.gt.user.service.dtos.UserDto;
+import com.learn.gt.user.service.model.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +15,7 @@ public class UserMapper {
                     entity.getEmail());
 
     private final Mapper<UserDto, User> dtoToEntity =
-            dto -> new User(
+            dto ->  new User(
                     dto.getId(),
                     dto.getUsername(),
                     dto.getPassword(),

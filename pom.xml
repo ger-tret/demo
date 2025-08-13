@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.userCRUDservice</groupId>
-	<artifactId>userCRUDservice</artifactId>
+	<artifactId>user-microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Test task for Krainet</description>
@@ -97,8 +97,13 @@
 			<artifactId>java-jwt</artifactId>
 			<version>3.18.2</version>
 		</dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>
