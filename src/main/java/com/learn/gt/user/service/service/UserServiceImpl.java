@@ -1,28 +1,30 @@
-package com.userCRUDservice.service;
+package com.learn.gt.user.service.service;
 
 
-import com.userCRUDservice.dtos.UserDto;
-import com.userCRUDservice.model.User;
-import com.userCRUDservice.handlers.UserAlreadyExists;
-import com.userCRUDservice.repository.UserRepository;
-import com.userCRUDservice.service.mapper.UserMapper;
+import com.learn.gt.user.service.dtos.UserDto;
+import com.learn.gt.user.service.model.User;
+import com.learn.gt.user.service.repository.UserRepository;
+import com.learn.gt.user.service.service.mapper.UserMapper;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+
     private UserRepository userRepository;
 
-    @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    public UserServiceImpl(UserMapper userMapper, UserRepository userRepository){
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
+    }
 
     @Transactional
     @Override
-    public Integer registerUser(UserDto userDto){
+    public Long registerUser(UserDto userDto){
 //        if(userRepository.findById(userDto.getId()).isPresent()){
 //            throw new UserAlreadyExists("User for that ID=" + userDto.getId() + "already exists");
 //        }
@@ -37,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User findUser(Integer id) {
+    public User findUser(Long id) {
        return userRepository.findById(id).orElse(null);
     }
 
